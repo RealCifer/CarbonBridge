@@ -155,3 +155,7 @@ CORS_ALLOWED_ORIGINS = [
 # Allow credentials if required
 CORS_ALLOW_CREDENTIALS = True
 
+# Custom User Model
+AUTH_USER_MODEL = 'core.User'
+
+

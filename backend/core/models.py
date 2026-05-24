@@ -6,6 +6,7 @@ from django.forms import model_to_dict
 from django.db.models.signals import pre_save, post_save
 from django.dispatch import receiver
 from decimal import Decimal
+from datetime import date, datetime
 
 logger = logging.getLogger(__name__)
 
@@ -367,10 +368,12 @@ def auto_generate_audit_log(sender, instance, created, **kwargs):
         if d:
             d.pop('created_at', None)
             d.pop('updated_at', None)
-            # Decimals are not directly JSON-serializable in standard Django forms, convert to strings
-            for k, v in d.items():
+            # Coerce types that are not natively JSON-serializable
+            for k, v in list(d.items()):
                 if isinstance(v, Decimal):
                     d[k] = str(v)
+                elif isinstance(v, (datetime, date)):
+                    d[k] = v.isoformat()
 
     # We determine the user acting. If explicitly attached to the thread instance, utilize it.
     # Otherwise, fallback to System.

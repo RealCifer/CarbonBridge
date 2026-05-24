@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     
     # Local apps
     'core',
+    'ingest',
 ]
 
 MIDDLEWARE = [
@@ -159,3 +160,25 @@ CORS_ALLOW_CREDENTIALS = True
 AUTH_USER_MODEL = 'core.User'
 
 
+# ============================================================
+# Django REST Framework
+# ============================================================
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+    # Reasonable upload size limit (50 MB)
+    'DEFAULT_PARSER_CLASSES': [
+        'rest_framework.parsers.MultiPartParser',
+        'rest_framework.parsers.FormParser',
+        'rest_framework.parsers.JSONParser',
+    ],
+}
+
+# Maximum upload size: 50 MB
+DATA_UPLOAD_MAX_MEMORY_SIZE = 52_428_800   # 50 MB
+FILE_UPLOAD_MAX_MEMORY_SIZE = 52_428_800   # 50 MB

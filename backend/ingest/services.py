@@ -49,6 +49,7 @@ from core.models import (
     UploadBatch,
     User,
 )
+from core.detection import SuspiciousRecordDetector
 from adapters.base import AdapterValidationError, NormalizedActivityRecord
 from adapters.sap_adapter import SAPAdapter
 from adapters.utility_adapter import UtilityAdapter
@@ -241,6 +242,7 @@ def run_ingestion(
     )
 
     adapter = _build_adapter(source_type, delimiter)
+    detector = SuspiciousRecordDetector(tenant)
 
     # ------------------------------------------------------------------
     # 2. Parse
@@ -327,6 +329,7 @@ def run_ingestion(
 
             for norm_record in norm_list:
                 orm_record = _build_normalized_record(tenant, source_type, norm_record)
+                detector.analyze(orm_record)
                 normalized_records_to_create.append(orm_record)
 
             raw_record.parsing_status = RawRecord.ParsingStatus.PARSED

@@ -65,6 +65,7 @@ from .base import (
     BaseAdapter,
     NormalizedActivityRecord,
 )
+from core.conversion import ConversionService
 
 logger = logging.getLogger(__name__)
 
@@ -627,7 +628,8 @@ class TravelAdapter(BaseAdapter):
         if row.get("distance_miles"):
             try:
                 miles = Decimal(str(row["distance_miles"]))
-                return (miles * _MILES_TO_KM).quantize(Decimal("0.01"))
+                converted, _ = ConversionService.convert("flight", miles, "miles")
+                return converted.quantize(Decimal("0.01"))
             except Exception:
                 pass
 
@@ -665,7 +667,8 @@ class TravelAdapter(BaseAdapter):
         if row.get("distance_miles"):
             try:
                 miles = Decimal(str(row["distance_miles"]))
-                return (miles * _MILES_TO_KM).quantize(Decimal("0.01"))
+                converted, _ = ConversionService.convert("ground_transport", miles, "miles")
+                return converted.quantize(Decimal("0.01"))
             except Exception:
                 pass
         logger.warning(

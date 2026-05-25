@@ -42,6 +42,7 @@ from .base import (
     BaseAdapter,
     NormalizedActivityRecord,
 )
+from core.conversion import ConversionService
 
 logger = logging.getLogger(__name__)
 
@@ -342,7 +343,7 @@ class SAPAdapter(BaseAdapter):
             original_unit = str(row.get("unit", "")).strip()
 
             normalised_qty, normalised_unit = self._normalise_unit(
-                original_qty, original_unit
+                activity_type, original_qty, original_unit
             )
 
             plant_code = str(row.get("plant_code", "")).strip() or None
@@ -448,18 +449,9 @@ class SAPAdapter(BaseAdapter):
 
     @staticmethod
     def _normalise_unit(
-        quantity: Decimal, unit: str
+        activity_type: str, quantity: Decimal, unit: str
     ) -> tuple[Decimal, str]:
         """
-        Convert quantity to SI base unit.
-        Returns (normalised_quantity, normalised_unit_string).
+        Convert quantity to SI base unit using ConversionService.
         """
-        unit_key = unit.strip().lower()
-        if unit_key in _UNIT_NORMALISATION:
-            target_unit, factor = _UNIT_NORMALISATION[unit_key]
-            return (quantity * factor).quantize(Decimal("0.000001")), target_unit
-        # Unknown unit – pass through unchanged
-        logger.warning(
-            "[SAP] Unknown unit '%s'; passing quantity through unchanged.", unit
-        )
-        return quantity, unit
+        return ConversionService.convert(activity_type, quantity, unit)

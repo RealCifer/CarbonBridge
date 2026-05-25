@@ -55,6 +55,7 @@ from .base import (
     BaseAdapter,
     NormalizedActivityRecord,
 )
+from core.conversion import ConversionService
 
 logger = logging.getLogger(__name__)
 
@@ -506,6 +507,10 @@ class UtilityAdapter(BaseAdapter):
     def _normalise_unit(
         quantity: Decimal, unit: str, activity_type: str
     ) -> tuple[Decimal, str]:
+        # Use centralized ConversionService for basic types
+        if activity_type in ("electricity", "fuel", "travel", "flight", "ground_transport", "procurement"):
+            return ConversionService.convert(activity_type, quantity, unit)
+
         unit_key = unit.strip().lower()
 
         # Special case: water should stay in m³ regardless of general table

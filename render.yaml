@@ -1,0 +1,53 @@
+services:
+  # ─── Web Service ─────────────────────────────────────────────────────────────
+  - type: web
+    name: carbonbridge-api
+    runtime: docker
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    plan: free
+    region: oregon
+
+    # Build command runs after Docker build
+    buildCommand: ""
+
+    # Start command is defined in the Dockerfile CMD
+    startCommand: ""
+
+    # Health check
+    healthCheckPath: /api/health/
+
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+
+      - key: DEBUG
+        value: "False"
+
+      - key: ALLOWED_HOSTS
+        value: "carbonbridge-api.onrender.com"
+
+      - key: DATABASE_URL
+        fromDatabase:
+          name: carbonbridge-db
+          property: connectionString
+
+      - key: CORS_ALLOWED_ORIGINS
+        value: "https://carbonbridge.vercel.app"
+
+      - key: CORS_ALLOW_ALL_ORIGINS
+        value: "False"
+
+      - key: GUNICORN_WORKERS
+        value: "2"
+
+      - key: GUNICORN_THREADS
+        value: "2"
+
+  # ─── Postgres Database ───────────────────────────────────────────────────────
+databases:
+  - name: carbonbridge-db
+    plan: free
+    databaseName: carbonbridge
+    user: carbonbridge_user
+    region: oregon

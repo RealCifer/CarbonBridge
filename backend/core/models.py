@@ -7,6 +7,7 @@ from django.db.models.signals import pre_save, post_save
 from django.dispatch import receiver
 from decimal import Decimal
 from datetime import date, datetime
+from rest_framework.exceptions import ValidationError
 
 logger = logging.getLogger(__name__)
 
@@ -333,6 +334,11 @@ def capture_old_values(sender, instance, **kwargs):
     if instance.pk:
         try:
             original = NormalizedRecord.all_objects.get(pk=instance.pk)
+            
+            # Prevent editing approved records
+            if original.approval_status == NormalizedRecord.ApprovalStatus.APPROVED:
+                raise ValidationError("Cannot edit an approved record.")
+                
             # Cache the serialized dictionary on the active instance memory
             instance._old_values_dict = model_to_dict(original)
         except NormalizedRecord.DoesNotExist:

@@ -1,0 +1,4 @@
+material_id,plant_code,fuel_type,quantity,unit,date
+MAT001,PLANT01,Diesel,100,L,2025-01-15
+MAT002,PLANT02,Petrol,50,L,2025-01-16
+MAT003,PLANT01,Diesel,25,GAL,2025-01-17

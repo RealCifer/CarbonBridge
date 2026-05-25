@@ -69,11 +69,11 @@ export default function Dashboard() {
         </div>
         <div className="card metric-card">
           <span className="metric-title">Suspicious Records</span>
-          <span className="metric-value text-red-600">{stats.suspicious}</span>
+          <span className="metric-value" style={{ color: 'var(--danger-text)' }}>{stats.suspicious}</span>
         </div>
         <div className="card metric-card">
           <span className="metric-title">Approved Records</span>
-          <span className="metric-value text-green-600">{stats.approved}</span>
+          <span className="metric-value" style={{ color: 'var(--success-text)' }}>{stats.approved}</span>
         </div>
         <div className="card metric-card">
           <span className="metric-title">Total Upload Batches</span>

@@ -7,7 +7,7 @@ export default function Layout() {
       {/* Sidebar */}
       <aside className="sidebar">
         <div className="sidebar-header">
-          <Leaf className="text-green-400" /> {/* Just an icon */}
+          <Leaf style={{ color: '#4ade80' }} /> {/* Just an icon */}
           CarbonBridge
         </div>
         <nav className="sidebar-nav">

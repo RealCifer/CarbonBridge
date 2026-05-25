@@ -62,6 +62,7 @@ def approve_record(request):
         
     record.approval_status = NormalizedRecord.ApprovalStatus.APPROVED
     record.approved_by = request.user
+    record._acting_user = request.user
     record.save()
     
     return Response({"status": "approved", "record_id": record.id})
@@ -79,6 +80,7 @@ def reject_record(request):
         return Response({"error": "Cannot reject an already approved record"}, status=status.HTTP_400_BAD_REQUEST)
         
     record.approval_status = NormalizedRecord.ApprovalStatus.REJECTED
+    record._acting_user = request.user
     record.save()
     
     return Response({"status": "rejected", "record_id": record.id})

@@ -288,6 +288,9 @@ class NormalizedRecord(TimeStampedModel, SoftDeleteModel):
     class Meta:
         verbose_name = 'Normalized Record'
         verbose_name_plural = 'Normalized Records'
+        indexes = [
+            models.Index(fields=['tenant', 'approval_status']),
+        ]
 
     def __str__(self):
         return f"{self.activity_type} ({self.scope}) - {self.normalized_value} {self.normalized_unit} ({self.tenant.name})"

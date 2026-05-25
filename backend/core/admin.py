@@ -60,13 +60,14 @@ class SoftDeleteFilter(admin.SimpleListFilter):
         )
 
     def queryset(self, request, queryset):
-        # We must use model_admin.model.all_objects if we want to retrieve soft-deleted rows
+        # Access the model class from the queryset to reach the unfiltered manager
+        model = queryset.model
         if self.value() == 'deleted':
-            return model_admin.model.all_objects.filter(is_deleted=True)
+            return model.all_objects.filter(is_deleted=True)
         elif self.value() == 'all':
-            return model_admin.model.all_objects.all()
-        # Default is active records
-        return queryset.filter(is_deleted=False)
+            return model.all_objects.all()
+        # Default is active records (already filtered by SoftDeleteManager)
+        return queryset
 
 
 # ==========================================

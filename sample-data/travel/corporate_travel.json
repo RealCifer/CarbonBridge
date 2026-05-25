@@ -1,0 +1,269 @@
+[
+  {
+    "type": "flight",
+    "booking_id": "TRP-2025-0001",
+    "date": "2025-01-10",
+    "traveller": "E1001",
+    "origin": "FRA",
+    "destination": "LHR",
+    "carrier": "LH",
+    "flight_number": "LH900",
+    "cabin_class": "Economy",
+    "distance_km": 647
+  },
+  {
+    "type": "flight",
+    "booking_id": "TRP-2025-0002",
+    "date": "2025-01-14",
+    "traveller": "E1002",
+    "origin": "MUC",
+    "destination": "JFK",
+    "carrier": "LH",
+    "flight_number": "LH410",
+    "cabin_class": "Business",
+    "distance_km": 6497
+  },
+  {
+    "type": "hotel",
+    "booking_id": "TRP-2025-0003",
+    "check_in_date": "2025-01-14",
+    "traveller": "E1002",
+    "hotel_name": "Marriott Times Square",
+    "city": "New York",
+    "country": "US",
+    "nights": 3
+  },
+  {
+    "type": "taxi",
+    "booking_id": "TRP-2025-0004",
+    "date": "2025-01-15",
+    "traveller": "E1002",
+    "transport_mode": "taxi",
+    "city": "New York",
+    "country": "US",
+    "distance_miles": 12.5
+  },
+  {
+    "type": "flight",
+    "booking_id": "TRP-2025-0005",
+    "date": "2025-01-22",
+    "traveller": "E1003",
+    "origin": "BER",
+    "destination": "CDG",
+    "carrier": "AF",
+    "flight_number": "AF1235",
+    "cabin_class": "Economy"
+  },
+  {
+    "type": "flight",
+    "booking_id": "TRP-2025-0006",
+    "date": "2025-02-03",
+    "traveller": "E1001",
+    "origin": "FRA",
+    "destination": "DXB",
+    "carrier": "EK",
+    "flight_number": "EK048",
+    "cabin_class": "Economy",
+    "distance_km": 4839
+  },
+  {
+    "type": "hotel",
+    "booking_id": "TRP-2025-0007",
+    "check_in_date": "2025-02-03",
+    "traveller": "E1001",
+    "hotel_name": "Hilton Dubai Creek",
+    "city": "Dubai",
+    "country": "AE",
+    "nights": 4
+  },
+  {
+    "type": "taxi",
+    "booking_id": "TRP-2025-0008",
+    "date": "2025-02-04",
+    "traveller": "E1001",
+    "transport_mode": "car",
+    "city": "Dubai",
+    "country": "AE",
+    "distance_km": 35.0
+  },
+  {
+    "type": "flight",
+    "booking_id": "TRP-2025-0009",
+    "date": "2025-02-18",
+    "traveller": "E1004",
+    "origin": "AMS",
+    "destination": "SIN",
+    "carrier": "KL",
+    "flight_number": "KL835",
+    "cabin_class": "Business",
+    "distance_km": 10361
+  },
+  {
+    "type": "hotel",
+    "booking_id": "TRP-2025-0010",
+    "check_in_date": "2025-02-19",
+    "traveller": "E1004",
+    "hotel_name": "Marina Bay Sands",
+    "city": "Singapore",
+    "country": "SG",
+    "nights": 5
+  },
+  {
+    "type": "ground",
+    "booking_id": "TRP-2025-0011",
+    "date": "2025-02-19",
+    "traveller": "E1004",
+    "transport_mode": "train",
+    "city": "Singapore",
+    "country": "SG",
+    "distance_km": 22.0
+  },
+  {
+    "type": "flight",
+    "booking_id": "TRP-2025-0012",
+    "date": "2025-02-28",
+    "traveller": "E1005",
+    "destination": "LHR",
+    "carrier": "BA",
+    "flight_number": "BA126",
+    "cabin_class": "Economy"
+  },
+  {
+    "type": "flight",
+    "booking_id": "TRP-2025-0013",
+    "date": "2025-03-05",
+    "traveller": "E1006",
+    "origin": "FRA",
+    "destination": "NRT",
+    "carrier": "LH",
+    "flight_number": "LH716",
+    "cabin_class": "Economy",
+    "distance_km": 9351
+  },
+  {
+    "type": "hotel",
+    "booking_id": "TRP-2025-0014",
+    "check_in_date": "2025-03-06",
+    "traveller": "E1006",
+    "hotel_name": "Shinjuku Prince Hotel",
+    "city": "Tokyo",
+    "country": "JP",
+    "nights": 6
+  },
+  {
+    "type": "taxi",
+    "booking_id": "TRP-2025-0015",
+    "date": "2025-03-06",
+    "traveller": "E1006",
+    "transport_mode": "taxi",
+    "city": "Tokyo",
+    "country": "JP",
+    "distance_km": 68.0
+  },
+  {
+    "type": "flight",
+    "booking_id": "TRP-2025-0016",
+    "date": "2025-03-12",
+    "traveller": "E1003",
+    "origin": "MUC",
+    "destination": "MAD",
+    "carrier": "IB",
+    "flight_number": "IB3702",
+    "cabin_class": "Economy",
+    "distance_miles": 1132
+  },
+  {
+    "type": "hotel",
+    "booking_id": "TRP-2025-0017",
+    "check_in_date": "2025-03-12",
+    "traveller": "E1003",
+    "hotel_name": "Hotel Ritz Madrid",
+    "city": "Madrid",
+    "country": "ES",
+    "nights": -2
+  },
+  {
+    "type": "taxi",
+    "booking_id": "TRP-2025-0018",
+    "date": "2025-03-13",
+    "traveller": "E1003",
+    "transport_mode": "rideshare",
+    "city": "Madrid",
+    "country": "ES"
+  },
+  {
+    "expense_type": "flight",
+    "booking_id": "TRP-2025-0019",
+    "departure_date": "2025-04-02",
+    "employee_id": "E1001",
+    "origin_airport": "FRA",
+    "destination_airport": "DEL",
+    "airline_code": "LH",
+    "flight_no": "LH758",
+    "travel_class": "Economy",
+    "km": 6510
+  },
+  {
+    "expense_type": "hotel",
+    "booking_id": "TRP-2025-0020",
+    "check_in_date": "2025-04-03",
+    "employee_id": "E1001",
+    "property_name": "Taj Mahal Palace",
+    "city_name": "Mumbai",
+    "country_code": "IN",
+    "room_nights": 3
+  },
+  {
+    "type": "taxi",
+    "booking_id": "TRP-2025-0021",
+    "date": "2099-06-01",
+    "traveller": "E1007",
+    "transport_mode": "taxi",
+    "city": "London",
+    "country": "GB",
+    "distance_km": 14.5
+  },
+  {
+    "type": "flight",
+    "booking_id": "TRP-2025-0022",
+    "date": "2025-04-20",
+    "traveller": "E1002",
+    "origin": "JFK",
+    "destination": "LAX",
+    "carrier": "AA",
+    "flight_number": "AA110",
+    "cabin_class": "Business",
+    "distance_km": 3983
+  },
+  {
+    "type": "hotel",
+    "booking_id": "TRP-2025-0023",
+    "date": "2025-04-21",
+    "traveller": "E1002",
+    "hotel_name": "Beverly Hills Hotel",
+    "city": "Los Angeles",
+    "country": "US"
+  },
+  {
+    "type": "ground",
+    "booking_id": "TRP-2025-0024",
+    "date": "2025-04-21",
+    "traveller": "E1002",
+    "transport_mode": "bus",
+    "city": "Los Angeles",
+    "country": "US",
+    "distance_miles": 8.2
+  },
+  {
+    "type": "flight",
+    "booking_id": "TRP-2025-0025",
+    "date": "2025-05-05",
+    "traveller": "E1004",
+    "origin": "SIN",
+    "destination": "SYD",
+    "carrier": "SQ",
+    "flight_number": "SQ211",
+    "cabin_class": "Economy",
+    "distance_km": 6302
+  }
+]

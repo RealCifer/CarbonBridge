@@ -38,6 +38,17 @@ def suspicious_records(request):
     return Response(serializer.data)
 
 
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def approved_records(request):
+    records = NormalizedRecord.objects.filter(
+        tenant=request.user.tenant,
+        approval_status=NormalizedRecord.ApprovalStatus.APPROVED
+    ).order_by('-updated_at')
+    serializer = NormalizedRecordSerializer(records, many=True)
+    return Response(serializer.data)
+
+
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def approve_record(request):

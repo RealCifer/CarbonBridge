@@ -1,4 +1,5 @@
-material_id,plant_code,fuel_type,quantity,unit,date
-MAT001,PLANT01,Diesel,100,L,2025-01-15
-MAT002,PLANT02,Petrol,50,L,2025-01-16
-MAT003,PLANT01,Diesel,25,GAL,2025-01-17
+Buchungsdatum;Werk;Materialgruppe;Menge;Mengeneinheit;Belegart;Belegnummer;Kostenstelle;Betrag;Währung
+2025-01-05;WRK001;Diesel;850,00;L;ZB;4900001001;KST-100;723,00;EUR
+2025-01-08;WRK002;Diesel;1.200,50;L;ZB;4900001002;KST-200;1.020,43;EUR
+2025-01-12;WRK001;Benzin;300,00;L;ZB;4900001003;KST-100;267,00;EUR
+2025-01-19;WRK002;Diesel;95,00;GAL;ZB;4900001005;KST-200;306,88;EUR

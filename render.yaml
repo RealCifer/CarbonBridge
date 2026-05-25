@@ -1,5 +1,4 @@
 services:
-  # ─── Web Service ─────────────────────────────────────────────────────────────
   - type: web
     name: carbonbridge-api
     runtime: docker
@@ -8,13 +7,10 @@ services:
     plan: free
     region: oregon
 
-    # Build command runs after Docker build
     buildCommand: ""
 
-    # Start command is defined in the Dockerfile CMD
     startCommand: ""
 
-    # Health check
     healthCheckPath: /api/health/
 
     envVars:
@@ -44,7 +40,6 @@ services:
       - key: GUNICORN_THREADS
         value: "2"
 
-  # ─── Postgres Database ───────────────────────────────────────────────────────
 databases:
   - name: carbonbridge-db
     plan: free

@@ -2,6 +2,11 @@
 
 Multi-Tenant ESG Data Ingestion, Normalization, and Audit Review Platform
 
+## Live Deployment
+
+- **Frontend (Vercel):** [https://carbon-bridge-mauve.vercel.app/](https://carbon-bridge-mauve.vercel.app/)
+- **Backend (Render):** [https://carbonbridge-1.onrender.com/](https://carbonbridge-1.onrender.com/)
+
 ## Overview
 
 CarbonBridge is an Environmental, Social, and Governance (ESG) data ingestion platform designed to consolidate corporate carbon metrics from disparately formatted source systems.

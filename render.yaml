@@ -11,6 +11,8 @@ services:
 
     startCommand: ""
 
+    preDeployCommand: "python manage.py migrate --noinput"
+
     healthCheckPath: /api/health/
 
     envVars:
